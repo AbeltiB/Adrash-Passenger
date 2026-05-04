@@ -10,7 +10,7 @@ export default function TrackingScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Tracking Trip #{id}</Text>
       <Text style={styles.status}>{status}</Text>
-      <Pressable style={styles.button} onPress={() => setStatus('Bus is on the way • ETA 12 min')}>
+      <Pressable style={styles.button} onPress={() => setStatus('Bus is on the way - ETA 12 min')}>
         <Text style={styles.buttonText}>Update ETA</Text>
       </Pressable>
       <Pressable style={styles.secondary} onPress={() => setStatus('Bus arrived at pickup point')}>
