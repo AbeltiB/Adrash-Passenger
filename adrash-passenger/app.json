@@ -33,13 +33,7 @@
     "plugins": [
       "expo-router",
       "expo-secure-store",
-      "expo-localization",
-      [
-        "react-native-maps",
-        {
-          "googleMapsApiKey": ""
-        }
-      ]
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true

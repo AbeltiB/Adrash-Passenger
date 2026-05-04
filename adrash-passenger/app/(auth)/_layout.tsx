@@ -6,7 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // Init i18n side-effect before any component renders
-import '../src/lib/i18n';
+import '../../src/lib/i18n';
 import { queryClient } from '../../src/lib/queryClient';
 
 export default function RootLayout() {
