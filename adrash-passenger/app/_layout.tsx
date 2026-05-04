@@ -4,7 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-// Init i18n side-effect before any component renders
 import '../src/lib/i18n';
 import { queryClient } from '../src/lib/queryClient';
 
@@ -17,7 +16,7 @@ export default function RootLayout() {
                     <Stack screenOptions={{ headerShown: false }}>
                         <Stack.Screen name="(auth)" />
                         <Stack.Screen name="(tabs)" />
-                        <Stack.Screen name="route/[id]" options={{ presentation: 'card' }} />
+                        <Stack.Screen name="search/results" />
                         <Stack.Screen name="booking/pickup" />
                         <Stack.Screen name="booking/seats" />
                         <Stack.Screen name="booking/passengers" />
@@ -25,9 +24,9 @@ export default function RootLayout() {
                         <Stack.Screen name="booking/payment" />
                         <Stack.Screen name="booking/waiting" />
                         <Stack.Screen name="booking/confirmation" />
-                        <Stack.Screen name="trip/[id]" />
+                        <Stack.Screen name="trip/[id]/index" />
                         <Stack.Screen name="trip/[id]/tracking" options={{ presentation: 'fullScreenModal' }} />
-                        <Stack.Screen name="agreement" />
+                        <Stack.Screen name="notifications" options={{ presentation: 'card' }} />
                     </Stack>
                 </QueryClientProvider>
             </SafeAreaProvider>

@@ -1,12 +1,14 @@
 import { Tabs, Redirect } from 'expo-router';
-import { useTranslation } from 'react-i18next';
+import { Text } from 'react-native';
 import { useAuthStore } from '../../src/features/auth/store/authStore';
 import { Colors } from '../../src/constants';
 
+const tabIcon = (emoji: string) => ({ color }: { color: string }) => (
+    <Text style={{ fontSize: 22, color }}>{emoji}</Text>
+);
+
 export default function TabsLayout() {
     const { isAuthenticated } = useAuthStore();
-    const { t } = useTranslation();
-
     if (!isAuthenticated) return <Redirect href="/(auth)/phone" />;
 
     return (
@@ -18,25 +20,17 @@ export default function TabsLayout() {
                 tabBarStyle: {
                     backgroundColor: Colors.background.primary,
                     borderTopColor: Colors.border.light,
+                    height: 64,
+                    paddingBottom: 8,
+                    paddingTop: 6,
                 },
+                tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
             }}
         >
-            <Tabs.Screen
-                name="index"
-                options={{ title: t('home.search_placeholder', 'Home') }}
-            />
-            <Tabs.Screen
-                name="my-trips"
-                options={{ title: t('trips.title') }}
-            />
-            <Tabs.Screen
-                name="rewards"
-                options={{ title: t('rewards.title') }}
-            />
-            <Tabs.Screen
-                name="profile"
-                options={{ title: t('profile.title') }}
-            />
+            <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: tabIcon('🏠') }} />
+            <Tabs.Screen name="my-trips" options={{ title: 'Trips', tabBarIcon: tabIcon('🎫') }} />
+            <Tabs.Screen name="rewards" options={{ title: 'Rewards', tabBarIcon: tabIcon('🎁') }} />
+            <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: tabIcon('👤') }} />
         </Tabs>
     );
 }
